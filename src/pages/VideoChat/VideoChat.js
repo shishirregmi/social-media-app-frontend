@@ -19,7 +19,7 @@ const VideoChat = () => {
     const socketRef = useRef();
     const userVideo = useRef();
     const peersRef = useRef([]);
-    const roomID = location.state?.room;
+    const roomID = location.state?.roomID;
 
     useEffect(() => {
         socketRef.current = io.connect("https://video-socket-fresh-minds.herokuapp.com/");
