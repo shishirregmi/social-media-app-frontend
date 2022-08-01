@@ -71,7 +71,7 @@ const HomePage = () => {
             await socket.emit("send_message", messageData);
             setMessageList((list) => [...list, messageData]);
 
-            let response = await fetch('https://social-media-front-end.vercel.app/api/chats/add', {
+            let response = await fetch('https://shishirr.pythonanywhere.com/api/chats/add', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -88,7 +88,7 @@ const HomePage = () => {
         }
     };
     let getFriends = async () => {
-        let response = await fetch('https://social-media-front-end.vercel.app/api/friends/', {
+        let response = await fetch('https://shishirr.pythonanywhere.com/api/friends/', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -110,7 +110,7 @@ const HomePage = () => {
 
     let getChats = async () => {
         if (room !== undefined) {
-            let response = await fetch('https://social-media-front-end.vercel.app/api/chats/' + room, {
+            let response = await fetch('https://shishirr.pythonanywhere.com/api/chats/' + room, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
