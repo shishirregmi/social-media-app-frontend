@@ -185,7 +185,7 @@ const HomePage = () => {
                         </div>
                         <ScrollToBottom className="px-4 py-5 chat-box bg-white">
                             {messageList.map((messages, index) => {
-                                if (messages.author !== username) {
+                                if (messages.author !== user.username) {
                                     return (
                                         <div className="media w-50 mb-3" key={index}>
                                             <img src="https://bootstrapious.com/i/snippets/sn-chat/avatar.svg" alt="user" width="50" className="rounded-circle" />
