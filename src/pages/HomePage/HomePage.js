@@ -7,7 +7,7 @@ import io from "socket.io-client";
 import Moment from 'react-moment';
 import { Link } from 'react-router-dom';
 
-const socket = io.connect("http://localhost:3001");
+const socket = io.connect("https://socket-fresh-minds.herokuapp.com/");
 const HomePage = () => {
     let { authTokens, logoutUser, user } = useContext(AuthContext)
     let [friends, setFriends] = useState([])
@@ -71,7 +71,7 @@ const HomePage = () => {
             await socket.emit("send_message", messageData);
             setMessageList((list) => [...list, messageData]);
 
-            let response = await fetch('http://127.0.0.1:8000/api/chats/add', {
+            let response = await fetch('https://social-media-front-end.vercel.app/api/chats/add', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -88,7 +88,7 @@ const HomePage = () => {
         }
     };
     let getFriends = async () => {
-        let response = await fetch('http://127.0.0.1:8000/api/friends/', {
+        let response = await fetch('https://social-media-front-end.vercel.app/api/friends/', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -110,7 +110,7 @@ const HomePage = () => {
 
     let getChats = async () => {
         if (room !== undefined) {
-            let response = await fetch('http://127.0.0.1:8000/api/chats/' + room, {
+            let response = await fetch('https://social-media-front-end.vercel.app/api/chats/' + room, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
